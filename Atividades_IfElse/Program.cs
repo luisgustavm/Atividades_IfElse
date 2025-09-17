@@ -89,7 +89,7 @@ if (resultado >= 7)
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Aluno aprovado.");
 }
-else if (resultado >= 5 && resultado == 6.9)
+else if (resultado >= 5 && resultado <= 6.9)
 {
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("Aluno em recuperação.");
