@@ -11,7 +11,7 @@ char Ingresso;
 Console.WriteLine("Você possui ingresso? (s/n): ");
 char.TryParse(Console.ReadLine().ToUpper(), out Ingresso);
 
-if (Ingresso == 's' && idade <= 18 || sexo == 'f' && idade <= 18 && Ingresso == 'n')
+if ((Ingresso == 'S' && idade >= 18) || (sexo == 'F' && idade >= 18))
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Olá, você pode entrar na festa!");
@@ -34,7 +34,7 @@ char estudante;
 Console.WriteLine("Você é estudante? (s/n): ");
 char.TryParse(Console.ReadLine().ToUpper(), out estudante);
 
-if (idade > 12 || estudante == 's' || idade >= 60)
+if (idade <= 12 || estudante == 'S' || idade >= 60)
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Você paga a meia entrada!");
@@ -57,7 +57,7 @@ char assinatura;
 Console.WriteLine("Você possui assinatura premium? (s/n): ");
 char.TryParse(Console.ReadLine().ToUpper(), out assinatura);
 
-if (assinatura == 's' && idade <= 16 || assinatura == 'n' && idade <= 18)
+if ((assinatura == 'S' && idade >= 16) || (assinatura == 'N' && idade <= 18))
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Você pode acessar o jogo online!");
@@ -67,6 +67,7 @@ else
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("Desculpe, você não pode acessar o jogo online.");
 }
+
 
 
 Console.ForegroundColor = ConsoleColor.White;
@@ -84,12 +85,13 @@ Console.WriteLine("Digite sua terceira nota: ");
 int.TryParse(Console.ReadLine(), out nota3);
 
 int resultado = (nota1 + nota2 + nota3) / 3;
+
 if (resultado >= 7)
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Aluno aprovado.");
 }
-else if (resultado >= 5 && resultado <= 6.9)
+else if (resultado >= 5 && resultado < 7)
 {
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("Aluno em recuperação.");
